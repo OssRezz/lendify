@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: coffee-shop-frontend
+    container_name: lendify-front
     restart: always
     ports:
       - "4003:3000"
