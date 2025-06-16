@@ -185,10 +185,10 @@ const BorrowPage = () => {
                       <button
                         key={i}
                         onClick={() => setCurrentPage(i + 1)}
-                        className={`px-3 py-1 border rounded-md text-sm font-medium ${
+                        className={`px-3 py-1 rounded-md text-sm font-medium ${
                           currentPage === i + 1
-                            ? "bg-blue-600 text-white"
-                            : "bg-white text-gray-700"
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                       >
                         {i + 1}

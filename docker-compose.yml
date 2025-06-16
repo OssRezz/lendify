@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coffee-shop-frontend
+    restart: always
+    ports:
+      - "4003:3000"
+    environment:
+      - NODE_ENV=production
