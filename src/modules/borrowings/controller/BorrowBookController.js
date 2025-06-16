@@ -1,0 +1,37 @@
+import { BorrowModel } from "../model/BorrowModel";
+
+export const BorrowBookController = async (data) => {
+  // console.log(data);
+  try {
+    const borrowModel = new BorrowModel();
+    const formData = new FormData();
+    formData.append("book_ids[]", data.book_ids);
+    const response = await borrowModel.borrowBook(data.user_id, formData);
+    response;
+    return {
+      success: true,
+      title: "Success",
+      message: "Book borrowed successfully!",
+      data: response.data,
+    };
+  } catch (error) {
+    console.error("Error borrowing book:", error);
+
+    const code = error?.code || 500;
+    const title = error?.message || "Error creating book";
+
+    if (code === 422 && error.errors) {
+      const messageList = Object.values(error.errors).flat();
+      return {
+        success: false,
+        title,
+        message: messageList.length > 0 ? messageList : "Validation error.",
+      };
+    }
+
+    return {
+      success: false,
+      title,
+    };
+  }
+};
