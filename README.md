@@ -1,3 +1,4 @@
+
 # 📚 Lendify Frontend - React
 
 Esta es la aplicación frontend de **Lendify**, una plataforma de préstamos de libros entre usuarios. Ha sido desarrollada con **React** y diseñada bajo principios de organización modular, buena experiencia de usuario y facilidad de mantenimiento.
@@ -27,6 +28,7 @@ Esta es la aplicación frontend de **Lendify**, una plataforma de préstamos de 
 - Context API para manejo de estado
 - Docker (para despliegue en producción)
 - Axios (para peticiones al backend)
+- Vitest + React Testing Library (para pruebas)
 
 ---
 
@@ -44,7 +46,7 @@ src/
 │   └── ...
 ├── Components/              # Componentes globales como modales, skeletons, alerts
 ├── Context/                 # Manejo global de sesión y permisos
-└── Pages/                  # Paginas principales de la aplicación
+└── Pages/                   # Páginas principales de la aplicación
 ```
 
 - **Components/**: Contiene los componentes específicos del módulo (ej. modal de edición de libros)
@@ -66,10 +68,9 @@ Edita `.env` con tu URL del backend (por ejemplo desde Laravel en `http://localh
 ```env
 VITE_API_BASE_URL=http://localhost:8081/books-api/public/api/
 VITE_PUBLIC_BASE_URL=http://localhost:8081/books-api/public/
-
 ```
 
-La ruta publica, nos sirve para obtener las imagenes de los libros.
+> La ruta pública se usa para obtener las imágenes de los libros.
 
 ### 2. Instalar dependencias
 
@@ -101,7 +102,23 @@ La app se ejecutará en `http://localhost:5173`
 
 ## 🧪 Testing
 
-Actualmente, la app no cuenta con test automatizados, pero su estructura modular facilita la integración de pruebas unitarias en cada módulo (por ejemplo usando `React Testing Library` o `Vitest`).
+La app incluye pruebas automatizadas utilizando **Vitest** y **React Testing Library**. Se validan funcionalidades clave como:
+
+- 🔍 `SearchBar`: comportamiento del input y búsqueda
+- 📖 `BookCard`: visualización y acciones como "Borrow" o "Return"
+- 📄 `BorrowPage`: integración completa (carga, filtros, paginación, modales)
+- 📥 `BorrowModal` y `ReturnModal`: lógica de préstamo y devolución, validaciones y alertas
+
+### Ejecutar los tests
+
+```bash
+npm run test / npm run test:ui
+```
+
+Las pruebas están ubicadas dentro de carpetas `__test__` por módulo, siguiendo buenas prácticas de aislamiento.
+
+
+Run test:ui sirve para ver los test en una interfaz grafica.
 
 ---
 
@@ -113,7 +130,7 @@ La aplicación cuenta con configuración para producción mediante Docker:
 docker compose up --build -d
 ```
 
-La cual expone la aplicacion por el puerto 4003
+La cual expone la aplicación por el puerto `4003`.
 
 ---
 
@@ -126,8 +143,7 @@ La app fue desplegada exitosamente en una instancia EC2 de **AWS**, usando:
 - **Nginx** como servidor web
 - **Certbot** para certificados SSL
 
-
-Nginx funciona como proxy inverso y expone el frontend en el puerto 80/443 apuntando a la imagen Docker construida.
+Nginx funciona como proxy inverso y expone el frontend en los puertos `80` y `443`.
 
 ---
 
@@ -138,5 +154,3 @@ Todos los módulos consumen endpoints de la API Laravel. El archivo `ApiClient` 
 La variable `VITE_API_URL` define la URL base.
 
 ---
-
-

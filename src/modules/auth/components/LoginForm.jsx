@@ -63,7 +63,7 @@ const LoginForm = () => {
         <input
           type="email"
           placeholder="ejemplo@correo.com"
-          {...register("email", { required: "Email es requerido" })}
+          {...register("email", { required: "The email is required" })}
           className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
             errors.email
               ? "border-red-500 focus:ring-red-300"
@@ -83,7 +83,7 @@ const LoginForm = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="••••••••"
-            {...register("password", { required: "Contraseña es requerida" })}
+            {...register("password", { required: "The password is required" })}
             className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 pr-10 ${
               errors.password
                 ? "border-red-500 focus:ring-red-300"

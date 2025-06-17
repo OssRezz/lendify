@@ -4,8 +4,7 @@ import BookCard from "../../modules/borrowings/components/borrow/BookCard";
 import BookCardSkeleton from "../../modules/borrowings/components/borrow/BookCardSkeleton";
 import SearchBar from "../../modules/borrowings/components/borrow/SearchBar";
 import { motion, AnimatePresence } from "framer-motion";
-import BorrowModal from "../../modules/borrowings/components/borrow/BorrowModal"; // importa la modal
-import { BorrowBookController } from "../../modules/borrowings/controller/BorrowBookController";
+import BorrowModal from "../../modules/borrowings/components/borrow/BorrowModal";
 import AlertClose from "../../components/alerts/AlertClose";
 import { SuccessIcon } from "../../assets/icons/Icons";
 import ReturnModal from "../../modules/borrowings/components/return/ReturnModal";
