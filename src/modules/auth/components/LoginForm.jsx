@@ -56,7 +56,6 @@ const LoginForm = () => {
           />
         )}
       </div>
-      {/* Email */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Email
@@ -76,7 +75,6 @@ const LoginForm = () => {
         )}
       </div>
 
-      {/* Contraseña */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Contraseña
@@ -147,7 +145,6 @@ const LoginForm = () => {
         )}
       </div>
 
-      {/* Botón */}
       <div>
         <button
           type="submit"

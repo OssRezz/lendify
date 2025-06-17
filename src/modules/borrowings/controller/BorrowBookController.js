@@ -1,7 +1,6 @@
 import { BorrowModel } from "../model/BorrowModel";
 
 export const BorrowBookController = async (data) => {
-  // console.log(data);
   try {
     const borrowModel = new BorrowModel();
     const formData = new FormData();

@@ -57,12 +57,11 @@ const CreateBookModal = ({ show, onClose, onSave }) => {
       return;
     }
 
-    onSave(response); // pasa el libro creado
+    onSave(response);
     reset();
     onClose();
   };
 
-  // Cerrar si se hace clic fuera del modal
   const handleBackdropClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       onClose();

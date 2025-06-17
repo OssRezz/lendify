@@ -34,7 +34,7 @@ const AlertClose = ({
     setShow(false);
     setTimeout(() => {
       if (onClose) onClose();
-    }, 300); // tiempo de animación simulada
+    }, 300); 
   };
 
   useEffect(() => {

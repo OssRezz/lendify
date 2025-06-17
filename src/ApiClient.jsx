@@ -13,7 +13,6 @@ export class ApiClient {
       },
     });
 
-    // Interceptor para inyectar token si existe
     this.client.interceptors.request.use((config) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
@@ -23,7 +22,6 @@ export class ApiClient {
       return config;
     });
 
-    // Interceptor para manejar errores globales (como 401)
     this.client.interceptors.response.use(
       (response) => response,
       (error) => {
@@ -47,7 +45,6 @@ export class ApiClient {
     );
   }
 
-  // Método GET
   async get(endpoint, headers = {}) {
     try {
       const response = await this.client.get(endpoint, { headers });
@@ -57,7 +54,6 @@ export class ApiClient {
     }
   }
 
-  // Método POST
   async post(endpoint, data, headers = {}) {
     try {
       const response = await this.client.post(endpoint, data, { headers });
@@ -67,7 +63,6 @@ export class ApiClient {
     }
   }
 
-  // Método PUT
   async put(endpoint, data, headers = {}) {
     try {
       const response = await this.client.put(endpoint, data, { headers });
@@ -77,7 +72,6 @@ export class ApiClient {
     }
   }
 
-  // Método DELETE
   async delete(endpoint, headers = {}) {
     try {
       const response = await this.client.delete(endpoint, { headers });
@@ -87,7 +81,6 @@ export class ApiClient {
     }
   }
 
-  // Manejo estándar de errores
   formatError(error) {
     console.log(error);
     if (error.response?.data) {

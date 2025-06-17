@@ -8,10 +8,9 @@ export const updateBookController = async (data, book_id) => {
     formData.append("title", data.title);
     formData.append("isbn", data.isbn);
     formData.append("publication_year", data.publication_year);
-    formData.append("book_status_id", 1); // puedes hacerlo dinámico si es necesario
+    formData.append("book_status_id", 1); 
     formData.append("author_id", data.author_id.value);
 
-    // Verificar si se cargó una nueva imagen
     if (data.image_book && data.image_book.length > 0) {
       const file = data.image_book[0];
 

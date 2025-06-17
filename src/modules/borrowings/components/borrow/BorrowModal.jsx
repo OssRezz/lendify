@@ -46,7 +46,6 @@ const BorrowModal = ({ show, onClose, book, borrowBookSubmit }) => {
           setLoading(false);
         }
       } else {
-        // Cliente: autocompletar y bloquear user_id
         setValue("user_id", {
           label: `${user.name} (${user.email})`,
           value: user.id,
@@ -55,8 +54,8 @@ const BorrowModal = ({ show, onClose, book, borrowBookSubmit }) => {
     };
 
     if (show && book) {
-      reset(); // Limpiar el formulario
-      setValue("book_id", book.id); // Asignar ID del libro
+      reset(); 
+      setValue("book_id", book.id); 
       fetchUsers();
     }
   }, [show, book]);
@@ -96,7 +95,6 @@ const BorrowModal = ({ show, onClose, book, borrowBookSubmit }) => {
       <h2 className="text-lg font-semibold mb-4">Borrow Book</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-        {/* Campo oculto para book_id */}
         <input type="hidden" {...register("book_id", { required: true })} />
 
         <div>

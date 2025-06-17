@@ -1,4 +1,3 @@
-// src/pages/BorrowPage.jsx
 import { useEffect, useState } from "react";
 import { GetBorrowBooksController } from "../../modules/borrowings/controller/GetBorrowBooksController";
 import BookCard from "../../modules/borrowings/components/borrow/BookCard";
@@ -64,17 +63,15 @@ const BorrowPage = () => {
     }
   };
 
-  // Carga inicial
   useEffect(() => {
     fetchBooks();
   }, []);
 
-  // Debounce en búsqueda
   useEffect(() => {
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
       fetchBooks(searchTerm);
-    }, 500); // 500ms debounce
+    }, 500); 
     return () => clearTimeout(debounceTimeout);
   }, [searchTerm]);
 

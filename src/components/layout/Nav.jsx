@@ -1,4 +1,3 @@
-// Navbar.jsx
 import { Menu, Bell } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "../../context/auth/AuthContext"; 
@@ -31,7 +30,6 @@ const Nav = ({ onToggleSidebar }) => {
       </button>
 
       <div className="flex items-center gap-6">
-        {/* Notifications */}
         <div className="relative">
           <button
             onClick={() => setShowNotifications(!showNotifications)}
@@ -66,7 +64,6 @@ const Nav = ({ onToggleSidebar }) => {
           )}
         </div>
 
-        {/* User info */}
         <div className="flex items-center gap-2">
           <span className="text-gray-700 font-medium hidden sm:block">
             Hi, {user?.name || "Admin"}
